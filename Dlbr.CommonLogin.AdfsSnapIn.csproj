@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SignKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE2ABB48-1500-4C24-A960-DE6B2BC620EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VflIt.Samples</RootNamespace>
+    <AssemblyName>VflIt.Samples.AdfsSnapIn</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.IdentityServer">
+      <HintPath>..\packages\Microsoft.IdentityServer_CUSTOM\lib\Microsoft.IdentityServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityServer.Powershell">
+      <HintPath>..\packages\Microsoft.IdentityServer_CUSTOM\lib\Microsoft.IdentityServer.Powershell.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Management.Automation_CUSTOM\lib\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClaimIssuanceRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClaimIssuanceRuleParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClaimIssuanceRuleSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\AddFilteredRolesRuleCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\AddNameIdRuleCommand.cs" />
+    <Compile Include="Commands\AddCvrNumberRuleCommand.cs" />
+    <Compile Include="Commands\AddRuleCommand.cs" />
+    <Compile Include="Commands\AddNameRuleCommand.cs" />
+    <Compile Include="Commands\ExportPortableRelyingParty.cs" />
+    <Compile Include="Commands\SamlEndpointFactory.cs" />
+    <Compile Include="FederationMetadataGenerator.cs" />
+    <Compile Include="SamlFederationMetadataGenerator.cs" />
+    <Compile Include="SerializableClaimDescription.cs" />
+    <Compile Include="Commands\ImportPortableRelyingParty.cs" />
+    <Compile Include="Commands\GetRulesCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PortableRelyingParty.cs" />
+    <Compile Include="SerializableSamlEndpoint.cs" />
+    <Compile Include="DlbrCommonLoginAdfsSnapIn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WsFedFederationmetadataGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy.ps1" />
+    <None Include="DeploymentTests\testExportImport.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SignKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DeploymentTests\SafeToDelete_GenericSAMLP.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DeploymentTests\SafeToDelete_GenericWSFedPassive.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

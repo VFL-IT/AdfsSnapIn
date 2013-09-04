@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://genericsamlp.example.com/">
+   <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+         <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:X509Data>
+               <ds:X509Certificate>MIICIDCCAY2gAwIBAgIQLvb56/Q6pZ9LWmcqPbltdjAJBgUrDgMCHQUAMB0xGzAZ
+BgNVBAMTEnNhbWx0ZXN0LnZmbC5sb2NhbDAgFw0xMjEwMDExMDE4MDdaGA8yOTk4
+MTIzMTIyMDAwMFowHTEbMBkGA1UEAxMSc2FtbHRlc3QudmZsLmxvY2FsMIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOq/eR2obiDB/KG+RCccZhCwhWZPQr27re
+ADLNo1RdGdXMXdWb3cHuDqxkUj9mhE+aALFGfM3weDAa1vUGTzPWU0dotHbuNnO+
+cXHFJ/eG2nN1Qb068lNM9GXRTH7S1s2t3fxO1r0iKIGImQbkOSwxW3x4KsqK16lX
+5oDxLki9nwIDAQABo2cwZTATBgNVHSUEDDAKBggrBgEFBQcDATBOBgNVHQEERzBF
+gBDaT27bWovhgNdlH5HrtxGkoR8wHTEbMBkGA1UEAxMSc2FtbHRlc3QudmZsLmxv
+Y2FsghAu9vnr9Dqln0taZyo9uW12MAkGBSsOAwIdBQADgYEAJv0p4O0MgJLvTiYD
+jh89d/kDzDnbt06HiQZWRujiKkCPoAu8Qi8zB6ny8vR+evWVAc5rCYQUCgY3USlm
+MQEqj0kbAWWM0VPC3QzxqYzWI29UW4/stoz5+yRrqb52aNjd1HCwnM/PHgXQBJ1s
+KrvUvYhSmGaK9WWlk2gHxkTSRas=</ds:X509Certificate>
+            </ds:X509Data>
+         </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+         <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:X509Data>
+               <ds:X509Certificate>MIICIDCCAY2gAwIBAgIQLvb56/Q6pZ9LWmcqPbltdjAJBgUrDgMCHQUAMB0xGzAZ
+BgNVBAMTEnNhbWx0ZXN0LnZmbC5sb2NhbDAgFw0xMjEwMDExMDE4MDdaGA8yOTk4
+MTIzMTIyMDAwMFowHTEbMBkGA1UEAxMSc2FtbHRlc3QudmZsLmxvY2FsMIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOq/eR2obiDB/KG+RCccZhCwhWZPQr27re
+ADLNo1RdGdXMXdWb3cHuDqxkUj9mhE+aALFGfM3weDAa1vUGTzPWU0dotHbuNnO+
+cXHFJ/eG2nN1Qb068lNM9GXRTH7S1s2t3fxO1r0iKIGImQbkOSwxW3x4KsqK16lX
+5oDxLki9nwIDAQABo2cwZTATBgNVHSUEDDAKBggrBgEFBQcDATBOBgNVHQEERzBF
+gBDaT27bWovhgNdlH5HrtxGkoR8wHTEbMBkGA1UEAxMSc2FtbHRlc3QudmZsLmxv
+Y2FsghAu9vnr9Dqln0taZyo9uW12MAkGBSsOAwIdBQADgYEAJv0p4O0MgJLvTiYD
+jh89d/kDzDnbt06HiQZWRujiKkCPoAu8Qi8zB6ny8vR+evWVAc5rCYQUCgY3USlm
+MQEqj0kbAWWM0VPC3QzxqYzWI29UW4/stoz5+yRrqb52aNjd1HCwnM/PHgXQBJ1s
+KrvUvYhSmGaK9WWlk2gHxkTSRas=</ds:X509Certificate>
+            </ds:X509Data>
+         </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://genericsamlp.example.com/saml/LogoutServiceHTTPPost" ResponseLocation="https://kvote.maelkeudvalget.dk/ldk/saml/LogoutServiceHTTPRedirectResponse"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://genericsamlp.example.com/saml/SAMLAssertionConsumer" index="0" isDefault="true"/>
+   </md:SPSSODescriptor>
+   <md:Organization>
+      <md:OrganizationName xml:lang="en">VFL</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">VFL</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">vfl.dk</md:OrganizationURL>
+   </md:Organization>
+   <md:ContactPerson contactType="technical">
+      <md:Company>VFL</md:Company>
+      <md:EmailAddress>foo@example.com</md:EmailAddress>
+   </md:ContactPerson>
+</md:EntityDescriptor>
